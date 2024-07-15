@@ -1,0 +1,56 @@
+
+  /* FONTS */
+  @import url('https://fonts.googleapis.com/css2?family=Lumanosimo&family=Montserrat:wght@300&family=Roboto+Condensed:wght@300&family=Sevillana&display=swap');
+
+  /* BUTTONS */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+
+
+  /* MAIN */
+  * {
+  margin: 0;
+  padding: 0;
+ /* box-sizing: border-box;*/
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
+.container {
+    width: 100%;
+    /*min-height: 100vh;*/
+    justify-content: center;
+    align-items: center;
+    background: #27282c;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+.background-image {
+  /* background-image: url('assets/images/bg.jpg');  */
+  background-color: #F7F7F7;
+  background-size: cover; /* Ensure image covers the container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent image repetition */
+}
+
+
+.card-body {
+  /* background-color: #3B5998;  */
+  background-image: url('assets/images/bg.jpg');
+  color: #fff; /* White text */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+@media (max-width: 768px) {
+  /* Styles for screens smaller than 768px */
+  .btn {
+    font-size: 0.8rem;  /* Adjust as needed for your button */
+  }
+}
