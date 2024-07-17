@@ -6,16 +6,17 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     
-  <link rel="stylesheet" href="/assets/css/buttons.css">
-  <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="{{ asset('css/homestyle.css') }}"> 
+  <link rel="icon" href="{{ asset('favicon.ico') }}?v={{ date('YmdHis') }}">
+
+
   <title>Hugo Resende</title>
 </head>
-<body class="container" id="main">
+<body class="container d-flex" id="main">
 
   <div class="row">
     <div class="col-3 text-left">
-      <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;">
+      <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="about">
         <span></span>
         <span></span>
         <span></span>
@@ -55,30 +56,21 @@
       </a>
     </div>
 
-    <div class="col-3 text-center">
+    <div class="col-9 align-items-center">
+
+      <div class="info-box"></div>
+
     </div>
 
-    <div class="col-3 text-center">
-    </div>
+
+
+
   </div>
 
 
 
 
 
-  <div class="row justify-content-center text-center" id="app" >
-
-
-{{--     <div class="card-body" v-if="showBox">
-
-    </div> --}}
-  
-
-
-
-
-  
-  </div>
 
 
 
@@ -88,11 +80,7 @@
 
 </body>
 
-{{-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> --}}
-<script>
-
-</script>
-
+<script src="{{ asset('js/home.js') }}"></script>
 
 </html>
 

@@ -46,7 +46,12 @@
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-
+.info-box {
+  border-radius: 10px; /* Adjust radius as needed */
+  padding: 20px; /* Adjust padding as needed */
+  background-color: #f0f0f0; /* Optional background color */
+  height: 100%;
+}
 
 @media (max-width: 768px) {
   /* Styles for screens smaller than 768px */
