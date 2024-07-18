@@ -10,6 +10,7 @@
   <link rel="icon" href="{{ asset('favicon.ico') }}?v={{ date('YmdHis') }}">
 
 
+
   <title>Hugo Resende</title>
 </head>
 <body class="container d-flex" id="main">
@@ -23,9 +24,9 @@
     {{-- FIRST ROW --}}
     <div class="row">
 
-      <div class="text-center p-3 header-container">
+      <div class="text-center p-3 header-container w-100">
         <div class="header-box">
-          <div class="rolling-text">
+          <div class="rolling-text hi-melody-regular">
               Welcome to My Fancy Header with Rolling Text!
           </div>
         </div>
@@ -39,14 +40,25 @@
     <div class="row">
 
       <div class="col-3 text-left">
-        <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="about">
+
+
+        <div class="text-center">
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+      
+
+        <a class="btn btn-primary p-3 m-2 w-100 playwrite-pe" href="#"  style="--color: #060606;" id="about">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           About Me
         </a>
-        <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="projects">
+        <a class="btn btn-primary p-3 m-2 w-100 playwrite-pe" href="#"  style="--color: #060606;" id="projects">
           <span></span>
           <span></span>
           <span></span>
@@ -55,14 +67,14 @@
           <i class="fas fa-briefcase"></i>
         </a>
 
-        <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="resume">
+        <a class="btn btn-primary p-3 m-2 w-100 playwrite-pe" href="#"  style="--color: #060606;" id="resume">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           Resume
         </a>
-        <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="build">
+        <a class="btn btn-primary p-3 m-2 w-100 playwrite-pe" href="#"  style="--color: #060606;" id="build">
           <span></span>
           <span></span>
           <span></span>
@@ -70,7 +82,7 @@
           Build 
         </a>
     
-        <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="contact">
+        <a class="btn btn-primary p-3 m-2 w-100 playwrite-pe" href="#"  style="--color: #060606;" id="contact">
           <span></span>
           <span></span>
           <span></span>
@@ -81,7 +93,7 @@
 
       <div class="col-9 align-items-center">
 
-        <div class="info-box hidden"></div>
+        <div class="info-box hidden hi-melody-regular"></div>
 
       </div>
     </div>
