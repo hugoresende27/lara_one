@@ -1,61 +1,140 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Lumanosimo&family=Montserrat:wght@300&family=Roboto+Condensed:wght@300&family=Sevillana&display=swap');
 
-  /* FONTS */
-  @import url('https://fonts.googleapis.com/css2?family=Lumanosimo&family=Montserrat:wght@300&family=Roboto+Condensed:wght@300&family=Sevillana&display=swap');
-
-  /* BUTTONS */
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
-
+/* BUTTONS */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
 
 
-  /* MAIN */
-  * {
+/* ROOT FOR FILES */
+:root {
+  --amber-color: #F3B700;
+  --orange-color: #FAA300;
+  --fulvous-color: #E57C04;
+  --pumpkin-color: #F26F03;
+  --pantone-color: #FF6201;
+  --coque-color: #F63E02;
+}
+
+
+/* BUTTON PRIMARY */
+.btn-primary {
+  background-color: var(--amber-color);
+  border: var(--coque-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--coque-color);
+  border: var(--amber-color);
+}
+
+
+/* MAIN */
+* {
   margin: 0;
   padding: 0;
- /* box-sizing: border-box;*/
+  /* box-sizing: border-box; */
   font-family: 'Poppins', sans-serif;
 }
 
-
-
-.container {
-    width: 100%;
-    /*min-height: 100vh;*/
-    justify-content: center;
-    align-items: center;
-    background: #27282c;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-.background-image {
-  /* background-image: url('assets/images/bg.jpg');  */
-  background-color: #F7F7F7;
-  background-size: cover; /* Ensure image covers the container */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent image repetition */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures viewport height */
+  background-color: var(--pumpkin-color);
 }
 
+/* Container */
+.container {
+  width: 100%;
+  /* min-height: 100vh; Not needed anymore with body using min-height */
+  display: flex; /* Center elements horizontally */
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
+/* Background Image */
+.background-image {
+  /* background-image: url('assets/images/bg.jpg');  */
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Card Body */
 .card-body {
-  /* background-color: #3B5998;  */
-  background-image: url('assets/images/bg.jpg');
   color: #fff; /* White text */
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* Center content within card */
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* Center text within card */
 }
 
+/* Info Box */
 .info-box {
-  border-radius: 10px; /* Adjust radius as needed */
-  padding: 20px; /* Adjust padding as needed */
-  background-color: #f0f0f0; /* Optional background color */
-  height: 100%;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #f0f0f0;
 }
 
+
+/* Header Container */
+.header-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Header Box */
+.header-box {
+  width: 100%; /* Responsive to viewport width */
+  max-width: 600px;
+  padding: 20px;
+  background: linear-gradient(45deg,  var(--fulvous-color), var(--fulvous-color));
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Rolling Text */
+.rolling-text {
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  animation: roll 10s linear infinite;
+}
+
+
+.hidden {
+  display: none;
+}
+
+@keyframes roll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Media Queries for Mobile */
 @media (max-width: 768px) {
-  /* Styles for screens smaller than 768px */
   .btn {
-    font-size: 0.8rem;  /* Adjust as needed for your button */
+    font-size: 0.8rem; /* Adjust as needed for your button */
   }
 }

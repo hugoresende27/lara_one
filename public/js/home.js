@@ -1,29 +1,73 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
       
 
-    //ABOUT ------------------------------------------
-    const aboutMeButton = document.getElementById('about');
+    const aboutButton = document.getElementById('about');
+    const projectsButton = document.getElementById('projects');
+    const resumeButton = document.getElementById('resume');
+    const buildButton = document.getElementById('build');
+    const contactButton = document.getElementById('contact');
+
     const infoBox = document.querySelector('.info-box');
 
-    aboutMeButton.addEventListener('click', () => {
 
-      const myHeaders = new Headers();
-      myHeaders.append("Accept", "application/json");
+  //FETCH CONTENT ------------------------------------------
+  function fetchContent(url) {
+    
+    if (!url){
+      return infoBox.innerHTML = '';
+    }
+    infoBox.innerHTML = '';
+    const myHeaders = new Headers();
+    myHeaders.append("Accept", "application/json");
 
-      const requestOptions = {
+    const requestOptions = {
         method: "GET",
         headers: myHeaders,
         redirect: "follow"
-      };
+    };
 
-      fetch("http://127.0.0.1:8000/api/about", requestOptions)
-        .then((response) => response.text())
-        .then((result) => {
-          infoBox.innerHTML = result;
+    fetch(url, requestOptions)
+        .then(response => response.text())
+        .then(result => {
+            infoBox.innerHTML = result;
+            infoBox.classList.remove('hidden');
         })
-        .catch((error) => console.error(error));
+        .catch(error => console.error(error));
+  }
 
-  
+    
+  //ABOUT ------------------------------------------
+  aboutButton.addEventListener('click', () => {
+    fetchContent("http://127.0.0.1:8000/api/about");
+  });
+
+
+  //PROJECT -------------------------------------------
+  projectsButton.addEventListener('click', () => {
+    //fetchContent();
+  });
+
+
+  //RESUME -------------------------------------------
+  resumeButton.addEventListener('click', () => {
+    //fetchContent();
+
+  });
+
+
+  //BUILD -------------------------------------------
+  buildButton.addEventListener('click', () => {
+    //fetchContent();
+
+  });
+
+
+  //CONTACT -------------------------------------------
+  contactButton.addEventListener('click', () => {
+    //fetchContent();
+
   });
 
 

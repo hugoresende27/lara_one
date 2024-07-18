@@ -14,52 +14,76 @@
 </head>
 <body class="container d-flex" id="main">
 
-  <div class="row">
-    <div class="col-3 text-left">
-      <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="about">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        About Me
-      </a>
-      <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Projects
-        <i class="fas fa-briefcase"></i>
-      </a>
 
-      <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Resume
-      </a>
-      <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Build 
-      </a>
-   
-      <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Contact
-      </a>
+
+  {{-- CONTAINER MAIN --}}
+  <div class="row">
+
+
+    {{-- FIRST ROW --}}
+    <div class="row">
+
+      <div class="text-center p-3 header-container">
+        <div class="header-box">
+          <div class="rolling-text">
+              Welcome to My Fancy Header with Rolling Text!
+          </div>
+        </div>
+      </div>
+
+
     </div>
 
-    <div class="col-9 align-items-center">
 
-      <div class="info-box"></div>
+    {{-- SECOND ROW --}}
+    <div class="row">
 
+      <div class="col-3 text-left">
+        <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="about">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          About Me
+        </a>
+        <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="projects">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Projects
+          <i class="fas fa-briefcase"></i>
+        </a>
+
+        <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="resume">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Resume
+        </a>
+        <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="build">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Build 
+        </a>
+    
+        <a class="btn btn-primary p-3 m-2 w-100" href="#"  style="--color: #060606;" id="contact">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Contact
+        </a>
+      </div>
+
+      <div class="col-9 align-items-center">
+
+        <div class="info-box hidden"></div>
+
+      </div>
     </div>
 
 
