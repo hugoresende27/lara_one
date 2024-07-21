@@ -13,7 +13,7 @@
 
   <title>Hugo Resende</title>
 </head>
-<body class="container d-flex" id="main">
+<body class="container d-flex blue-theme" id="main">
 
 
 
@@ -44,21 +44,21 @@
 
         <div class="text-center">
           <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="theme-toggle" checked>
             <span class="slider"></span>
           </label>
         </div>
 
       
 
-        <a class="btn btn-primary p-3 m-2 w-100 playwrite-pe" href="#"  style="--color: #060606;" id="about">
+        <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="#"  id="about">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           About Me
         </a>
-        <a class="btn btn-primary p-3 m-2 w-100 playwrite-pe" href="#"  style="--color: #060606;" id="projects">
+        <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="#"  id="projects">
           <span></span>
           <span></span>
           <span></span>
@@ -67,14 +67,14 @@
           <i class="fas fa-briefcase"></i>
         </a>
 
-        <a class="btn btn-primary p-3 m-2 w-100 playwrite-pe" href="#"  style="--color: #060606;" id="resume">
+        <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="#"  id="resume">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           Resume
         </a>
-        <a class="btn btn-primary p-3 m-2 w-100 playwrite-pe" href="#"  style="--color: #060606;" id="build">
+        <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="#"  id="build">
           <span></span>
           <span></span>
           <span></span>
@@ -82,7 +82,7 @@
           Build 
         </a>
     
-        <a class="btn btn-primary p-3 m-2 w-100 playwrite-pe" href="#"  style="--color: #060606;" id="contact">
+        <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="#"  id="contact">
           <span></span>
           <span></span>
           <span></span>

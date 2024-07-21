@@ -13,11 +13,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   //FETCH CONTENT ------------------------------------------
-  function fetchContent(url) {
-    
+  function fetchContent(url, button) {
+    removeSelectedClassFromButtons();
+    button.classList.add('selected');
+
     if (!url){
       return infoBox.innerHTML = '';
     }
+
+
     infoBox.innerHTML = '';
     const myHeaders = new Headers();
     myHeaders.append("Accept", "application/json");
@@ -37,38 +41,62 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error(error));
   }
 
+
+  //CLEAR BUTTON CLASS SELECTED
+  function removeSelectedClassFromButtons() {
+    const buttons = document.querySelectorAll('a'); // Adjust selector if needed
+    // console.log(buttons);
+    buttons.forEach(button => {
+      button.classList.remove('selected');
+    });
+  }
+  
+
     
   //ABOUT ------------------------------------------
   aboutButton.addEventListener('click', () => {
-    fetchContent("http://127.0.0.1:8000/api/about");
+    fetchContent("http://127.0.0.1:8000/api/about" , aboutButton);
   });
 
 
   //PROJECT -------------------------------------------
   projectsButton.addEventListener('click', () => {
-    //fetchContent();
+    fetchContent('', projectsButton);
   });
 
 
   //RESUME -------------------------------------------
   resumeButton.addEventListener('click', () => {
-    //fetchContent();
+    fetchContent('', resumeButton);
 
   });
 
 
   //BUILD -------------------------------------------
   buildButton.addEventListener('click', () => {
-    //fetchContent();
+    fetchContent('', buildButton);
 
   });
 
 
   //CONTACT -------------------------------------------
   contactButton.addEventListener('click', () => {
-    //fetchContent();
-
+    fetchContent('', contactButton);
   });
 
+
+
+  //THEME CHANGE
+  const themeCheckbox = document.getElementById('theme-toggle');
+  themeCheckbox.addEventListener('change', () => {
+    const body = document.getElementById('main');
+    if (themeCheckbox.checked) {
+      body.classList.remove('orange-theme');
+      body.classList.add('blue-theme');
+    } else {
+      body.classList.remove('blue-theme');
+      body.classList.add('orange-theme');
+    }
+  });
 
 })

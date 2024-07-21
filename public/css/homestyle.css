@@ -9,12 +9,41 @@
 
 /* ROOT FOR FILES */
 :root {
+  /*orange*/
+  /* --amber-color: #F3B700;
+  --orange-color: #FAA300;
+  --fulvous-color: #E57C04;
+  --pumpkin-color: #F26F03;
+  --pantone-color: #FF6201;
+  --coque-color: #F63E02; */
+
+
+   /*blues*/
+   /* --lavender-color: #D9DBF1;
+   --french-color: #D0CDD7;
+   --frenchg-color: #ACB0BD;
+   --slate-color: #778991;
+   --dark-color: #416165;
+   --midnight-color: #0B3948; */
+}
+
+.orange-theme{
   --amber-color: #F3B700;
   --orange-color: #FAA300;
   --fulvous-color: #E57C04;
   --pumpkin-color: #F26F03;
   --pantone-color: #FF6201;
   --coque-color: #F63E02;
+
+}
+
+.blue-theme{
+  --amber-color: #D9DBF1;
+  --orange-color:#D0CDD7;
+  --fulvous-color: #ACB0BD;
+  --pumpkin-color: #778991;
+  --pantone-color: #416165;
+  --coque-color: #0B3948;
 }
 
 
@@ -36,15 +65,23 @@
 
 
 
-/* BUTTON PRIMARY */
-.btn-primary {
+/* BUTTON hero */
+.btn-hero {
   background-color: var(--amber-color);
   border: var(--coque-color);
+  color: var(--coque-color);
 }
 
-.btn-primary:hover {
+.btn-hero.selected {
+  background-color: var(--coque-color);
+  border: var(--coque-color);
+  color: var(--amber-color);
+}
+
+.btn-hero:hover {
   background-color: var(--coque-color);
   border: var(--amber-color);
+  color: var(--amber-color);
 }
 
 
