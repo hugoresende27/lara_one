@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\HomeAPIController;
+use App\Http\Controllers\API\TextDataAPIController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('about', [HomeAPIController::class, 'aboutMe'])->name('home.aboutme');
+
+Route::resource('textdata', TextDataAPIController::class);
+//Route::post('textdata', [TextDataAPIController::class, 'store']);

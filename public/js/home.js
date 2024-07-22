@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const infoBox = document.querySelector('.info-box');
 
 
+
   //FETCH CONTENT ------------------------------------------
   function fetchContent(url, button) {
     removeSelectedClassFromButtons();
@@ -55,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
   //ABOUT ------------------------------------------
   aboutButton.addEventListener('click', () => {
-    fetchContent("http://127.0.0.1:8000/api/about" , aboutButton);
+    fetchContent(appUrl + "/api/about" , aboutButton);
   });
 
 

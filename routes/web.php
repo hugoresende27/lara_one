@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TextDataController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,5 +28,6 @@ Route::get('/ai', [HomeController::class,'indexAI'])->name('ai.index');
 
 
 Route::get('/', [HomeController::class,'home'])->name('home');
+Route::get('/dashboard', [HomeController::class,'dashboard'])->name('dashboard');
 
-
+Route::get('textdata', [TextDataController::class, 'index'])->name('textdata.all');

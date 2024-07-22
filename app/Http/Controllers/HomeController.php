@@ -2,12 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AppUrlService;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use OpenAI;
 use Phpml\Classification\KNearestNeighbors;
 
 class HomeController extends Controller
 {
+
+    protected string $appUrl;
+    
+    /**
+     * __construct
+     *
+     * @param  mixed $appUrlService
+     * @return void
+     */
+    public function __construct(AppUrlService $appUrlService)
+    {
+        $this->appUrl =  $appUrlService->getAppUrl();
+    }
+
+
+    
     public function indexAI()
     {
 
@@ -32,9 +50,26 @@ class HomeController extends Controller
         return view("home");
     }
 
-
+    
+    /**
+     * home
+     *
+     * @return View
+     */
     public function home()
     {
-        return view ('home');
+        return view('home', ['appUrl' => $this->appUrl]);
+    }
+    
+
+
+    /**
+     * dashboard
+     *
+     * @return View
+     */
+    public function dashboard()
+    {
+        return view ('dashboard');
     }
 }

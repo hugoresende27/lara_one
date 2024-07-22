@@ -1,24 +1,8 @@
-<html lang="pt">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
-    
-  <link rel="stylesheet" href="{{ asset('css/homestyle.css') }}"> 
-  <link rel="icon" href="{{ asset('favicon.ico') }}?v={{ date('YmdHis') }}">
-
-
-
-  <title>Hugo Resende</title>
-</head>
-<body class="container d-flex blue-theme" id="main">
-
+@include('partials.header')
 
 
   {{-- CONTAINER MAIN --}}
-  <div class="row">
+  <div class="row ">
 
 
     {{-- FIRST ROW --}}
@@ -89,6 +73,14 @@
           <span></span>
           Contact
         </a>
+
+        <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="{{ route('dashboard')}}"  id="contact">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Dashboard
+        </a>
       </div>
 
       <div class="col-9 align-items-center">
@@ -103,20 +95,20 @@
 
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-</body>
+<!-- Embed the variable in a script tag -->
+<script>
+  var appUrl = @json($appUrl);
+</script>
 
 <script src="{{ asset('js/home.js') }}"></script>
 
-</html>
+  @include('partials.footer')
+
+
+
+
+
+
+
+
 
