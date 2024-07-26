@@ -31,3 +31,4 @@ Route::get('/', [HomeController::class,'home'])->name('home');
 Route::get('/dashboard', [HomeController::class,'dashboard'])->name('dashboard');
 
 Route::get('textdata', [TextDataController::class, 'index'])->name('textdata.all');
+

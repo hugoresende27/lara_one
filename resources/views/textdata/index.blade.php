@@ -5,9 +5,9 @@
 
 
     <div class="flex text-center">
-        <a href="{{ route('textdata.create')}}" >
-            <button class="btn btn-hero w-100">Create</button>
-        </a>
+
+        <button class="btn btn-success w-100" id="createBtn">Create</button>
+
 
         <table class="table table-bordered mt-3">
             <thead>
@@ -30,7 +30,8 @@
                     <td>{{ $data->created_at }}</td>
                     <td>{{ $data->updated_at }}</td>
                     <td>
-                        <a href="{{ route('textdata.edit', $data->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        
+                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#updateTextDataModal" data-id="{{ $data->id }}">Edit</button>
                         <button class="btn btn-danger btn-sm" onclick="deleteTextData({{ $data->id }})">Delete</button>
                     </td>
                 </tr>
@@ -41,31 +42,58 @@
     </div>
 
 
+    <style>
 
+    </style>
+
+
+
+    <!-- The Modal -->
+    <div id="inputForm" class="modal">
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Modal Header</h2>
+        </div>
+        <div class="modal-body">
+            <form id="createTextDataForm">
+                @csrf
+                <div class="mb-3">
+                  <label for="type" class="form-label">Type</label>
+                  <input type="text" class="form-control" id="type" name="type" required>
+                </div>
+                <div class="mb-3">
+                  <label  
+               for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="mb-3">
+                  <label for="text" class="form-label">Text</label> 
+              
+                  <textarea class="form-control" id="text" name="text" rows="3" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>  
+              
+              </form>
+        </div>
+        <div class="modal-footer">
+            <h3>Modal Footer</h3>
+        </div>
+    </div>
+
+
+
+
+
+      
+
+<!-- Embed the variable in a script tag -->
 <script>
+    var appUrl = @json($appUrl);
+</script>
+
+<script src="{{ asset('js/textdata/index.js') }}"></script>
 
 
-
-function deleteTextData(id) {
-        var appUrl = @json($appUrl);
-        if (confirm('Are you sure you want to delete this item?')) {
-            fetch(appUrl + `/api/textdata/${id}`, {
-                method: 'DELETE',
-                headers: {
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    document.getElementById(`textdata-${id}`).remove();
-                } else {
-                    alert('Failed to delete the item.');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    }
-    </script>
-
-  @include('partials.footer')
+@include('partials.footer')
