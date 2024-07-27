@@ -31,7 +31,15 @@
                     <td>{{ $data->updated_at }}</td>
                     <td>
                         
-                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#updateTextDataModal" data-id="{{ $data->id }}">Edit</button>
+                        {{-- <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#updateTextDataModal" data-id="{{ $data->id }}" id="editBtn">Edit</button> --}}
+                        <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#updateTextDataModal" 
+                                            data-id="{{ $data->id }}" 
+                                            data-type="{{ $data->type }}" 
+                                            data-name="{{ $data->name }}" 
+                                            data-text="{{ $data->text }}" 
+                                            onclick="editTextData({{ $data }})"
+                                            id="editButton_{{ $data->id }}">Edit</button>
+
                         <button class="btn btn-danger btn-sm" onclick="deleteTextData({{ $data->id }})">Delete</button>
                     </td>
                 </tr>
@@ -54,7 +62,7 @@
     <div class="modal-content">
         <div class="modal-header">
             <span class="close">&times;</span>
-            <h2>Modal Header</h2>
+            <h2>Add new entry</h2>
         </div>
         <div class="modal-body">
             <form id="createTextDataForm">
@@ -73,12 +81,12 @@
               
                   <textarea class="form-control" id="text" name="text" rows="3" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Save</button>  
-              
+                <button  class="btn btn-primary" id="createSubmitBtn">Save</button>  
+                <button  class="btn btn-secondary" id="updateSubmitBtn">Update</button>  
               </form>
         </div>
         <div class="modal-footer">
-            <h3>Modal Footer</h3>
+            <h3>Textdata</h3>
         </div>
     </div>
 
