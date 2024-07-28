@@ -8,4 +8,16 @@
   <link rel="icon" href="{{ asset('favicon.ico') }}?v={{ date('YmdHis') }}">
   <title>Hugo Resende</title>
 </head>
+
+@php
+  
+  $appUrl = env('APP_URL');
+
+@endphp
+
+<!-- Embed the variable in a script tag -->
+<script>
+  var appUrl = @json($appUrl);
+</script>
+
 <body class="container d-flex blue-theme container " id="main">

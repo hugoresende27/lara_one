@@ -3,9 +3,16 @@
 
   {{-- CONTAINER MAIN --}}
 
-    <a href="{{ route('textdata.all')}}">
-        <button class="btn btn-hero">TextData</button>
-    </a>
+    {{-- CONTAINER MAIN --}}
+    <div class="row ">
+
+      @include('partials.main',['config' => true] )
+  
+  
+    </div>
+  
+
+
 
 
 
