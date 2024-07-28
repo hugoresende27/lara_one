@@ -27,7 +27,7 @@
         </div>
 
       
-        @if (isset($config) || isset ($textdata))
+        @if (isset($config) || isset ($dashboard))
           <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe"href="{{ route('home')}}" id="">
             <span></span>
             <span></span>

@@ -3,7 +3,7 @@
   {{-- CONTAINER MAIN --}}
   <div class="row ">
 
-    @include('partials.main', ['textdata' => true])
+    @include('partials.main', ['dashboard' => true])
 
 
 </div>

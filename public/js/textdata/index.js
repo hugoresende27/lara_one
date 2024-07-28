@@ -12,34 +12,39 @@ var btn = document.getElementById("createBtn");
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 
-// When the user clicks on the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
+if (btn){
+    // When the user clicks on the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
 
-    document.getElementById('updateSubmitBtn').style.display = 'none';
-    // Access form fields in the modal
-    const typeInput = document.getElementById('type');
-    const nameInput = document.getElementById('name');
-    const textInput = document.getElementById('text');
-    
-    // Populate form fields with the passed data
-    typeInput.value = '';
-    nameInput.value = '';
-    textInput.value = '';
-}
+        document.getElementById('updateSubmitBtn').style.display = 'none';
+        // Access form fields in the modal
+        const typeInput = document.getElementById('type');
+        const nameInput = document.getElementById('name');
+        const textInput = document.getElementById('text');
+        
+        // Populate form fields with the passed data
+        typeInput.value = '';
+        nameInput.value = '';
+        textInput.value = '';
+    }
 
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
         modal.style.display = "none";
     }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 }
+
+
+
+
 
 
 
@@ -47,70 +52,73 @@ var createTextDataForm = document.getElementById('createTextDataForm');
 
 const createBtn = document.getElementById('createSubmitBtn'); // Assuming you have an update button
 
-createBtn.addEventListener('click', function() {
+if (createBtn) {
+    createBtn.addEventListener('click', function() {
 
 
-console.log('CREATE NEW');
-// Handle form submission logic (fetch API or other methods)
-// Get form data
-const formData = new FormData(createTextDataForm);
-
-// Convert form data to JSON object
-const data = Object.fromEntries(formData.entries());
-
-// Send POST request to the API
-fetch('/api/textdata', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'X-CSRF-TOKEN': '{{ csrf_token() }}' // Replace with your CSRF token
-    },
-    body: JSON.stringify(data)
-})
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Success:', data);
-
-        // Close the modal
-        var modal = document.getElementById("inputForm");
-        modal.style.display = "none";
-
-        // Add new row to the table
-        const tableBody = document.querySelector('tbody');
-        const newRow = document.createElement('tr');
-
+        console.log('CREATE NEW');
+        // Handle form submission logic (fetch API or other methods)
+        // Get form data
+        const formData = new FormData(createTextDataForm);
         
-        newRow.innerHTML = `
-                                <td>${data.id}</td>
-                                <td>${data.type}</td>
-                                <td>${data.name}</td>
-                                <td>${data.text}</td>
-                                <td>${data.created_at}</td>
-                                <td>${data.updated_at}</td>
-                                <td>
-                                    <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#updateTextDataModal" 
-                                                        data-id="${ data.id }" 
-                                                        data-type="${ data.type }" 
-                                                        data-name="${ data.name }" 
-                                                        data-text="${ data.text }" 
-                                                        id="editBtn">Edit</button>
+        // Convert form data to JSON object
+        const data = Object.fromEntries(formData.entries());
+        
+        // Send POST request to the API
+        fetch('/api/textdata', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}' // Replace with your CSRF token
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Success:', data);
+        
+                // Close the modal
+                var modal = document.getElementById("inputForm");
+                modal.style.display = "none";
+        
+                // Add new row to the table
+                const tableBody = document.querySelector('tbody');
+                const newRow = document.createElement('tr');
+        
+                
+                newRow.innerHTML = `
+                                        <td>${data.id}</td>
+                                        <td>${data.type}</td>
+                                        <td>${data.name}</td>
+                                        <td>${data.text}</td>
+                                        <td>${data.created_at}</td>
+                                        <td>${data.updated_at}</td>
+                                        <td>
+                                            <button class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#updateTextDataModal" 
+                                                                data-id="${ data.id }" 
+                                                                data-type="${ data.type }" 
+                                                                data-name="${ data.name }" 
+                                                                data-text="${ data.text }" 
+                                                                id="editBtn">Edit</button>
+        
+                                            <button class="btn btn-danger btn-sm" onclick="deleteTextData(${ data.id })">Delete</button>
+                                        </td>
+                                        `;
+                tableBody.appendChild(newRow);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // Handle error, e.g., display error message
+            });
+        
+        })
+}
 
-                                    <button class="btn btn-danger btn-sm" onclick="deleteTextData(${ data.id })">Delete</button>
-                                </td>
-                                `;
-        tableBody.appendChild(newRow);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        // Handle error, e.g., display error message
-    });
-
-})
 
 ////// ----------------------------------------------------------- DELETE ENTRY
 function deleteTextData(id) {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TextData;
+use App\Repositories\TextDataRepository;
 use App\Services\AppUrlService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
@@ -12,16 +14,17 @@ class HomeController extends Controller
 {
 
     protected string $appUrl;
-    
+    private $textDataRepository;
     /**
      * __construct
      *
      * @param  mixed $appUrlService
      * @return void
      */
-    public function __construct(AppUrlService $appUrlService)
+    public function __construct(AppUrlService $appUrlService,TextDataRepository $textDataRepository)
     {
         $this->appUrl =  $appUrlService->getAppUrl();
+        $this->textDataRepository = $textDataRepository;
     }
 
 
@@ -58,7 +61,8 @@ class HomeController extends Controller
      */
     public function home()
     {
-        return view('home', ['appUrl' => $this->appUrl]);
+        $textData = $this->textDataRepository->getAll();
+        return view('home', ['appUrl' => $this->appUrl, 'textData' => $textData]);
     }
     
 

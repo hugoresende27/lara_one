@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     
   //ABOUT ------------------------------------------
-  aboutButton.addEventListener('click', () => {
+/*   aboutButton.addEventListener('click', () => {
     fetchContent(appUrl + "/api/about" , aboutButton);
   });
 
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function () {
   //CONTACT -------------------------------------------
   contactButton.addEventListener('click', () => {
     fetchContent('', contactButton);
-  });
+  }); */
 
 
 
