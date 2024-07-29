@@ -61,8 +61,8 @@ class HomeController extends Controller
      */
     public function home()
     {
-        $textData = $this->textDataRepository->getAll();
-        return view('home', ['appUrl' => $this->appUrl, 'textData' => $textData]);
+        $buttons = $this->textDataRepository->getAllButtons();
+        return view('home', ['appUrl' => $this->appUrl, 'buttons' => $buttons]);
     }
     
 
@@ -74,6 +74,8 @@ class HomeController extends Controller
      */
     public function dashboard()
     {
-        return view ('dashboard');
+        $textData = $this->textDataRepository->getAll();
+
+        return view ('dashboard', ['appUrl' => $this->appUrl, 'textData' => $textData]);
     }
 }

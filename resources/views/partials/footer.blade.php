@@ -1,6 +1,11 @@
 </body>
 
-
+<!-- Embed the variable in a script tag -->
+<script>
+    var appUrl = @json($appUrl);
+  </script>
+  
+  <script src="{{ asset('js/textdata/index.js') }}"></script>
 
 
 <script src="{{ asset('js/home.js') }}"></script>

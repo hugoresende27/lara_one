@@ -6,7 +6,8 @@
     {{-- CONTAINER MAIN --}}
     <div class="row ">
 
-      @include('partials.main',['config' => true] )
+
+      @include('partials.main',['textData' => $textData] )
   
   
     </div>

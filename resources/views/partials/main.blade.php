@@ -26,8 +26,41 @@
           </label>
         </div>
 
-      
-        @if (isset($config) || isset ($dashboard))
+        <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe"href="{{ route('home')}}" id="">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Home
+        </a>
+
+        <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="{{ route('dashboard')}}"  id="contact">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Config
+        </a>
+
+        @if (isset($buttons))
+          @foreach ($buttons as $button)
+            <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe"href="" id="">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              {{$button->name}}
+            </a>
+          @endforeach
+
+        @endif
+
+      </div>
+       
+
+
+
+         <!--
           <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe"href="{{ route('home')}}" id="">
             <span></span>
             <span></span>
@@ -44,9 +77,7 @@
           </a>
 
        
-    
   
-        @else
 
        
 
@@ -97,14 +128,15 @@
             Config
           </a>
 
-        @endif
       </div>
 
+
+    -->
       <div class="col-9 align-items-center">
 
-        @if (isset($textdata))
+        @if (isset($textData))
 
-          
+
           <div class="flex text-center">
 
               <button class="btn btn-success w-100" id="createBtn">Create</button>
@@ -152,7 +184,7 @@
         
           </div>
           
-    
+       
     
       
           <!-- The Modal -->

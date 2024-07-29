@@ -4,7 +4,7 @@
   {{-- CONTAINER MAIN --}}
   <div class="row ">
 
-    @include('partials.main', ['textData' => $textData])
+    @include('partials.main', ['textData' => $textData ?? null])
 
 
 
