@@ -78,4 +78,16 @@ class HomeController extends Controller
 
         return view ('dashboard', ['appUrl' => $this->appUrl, 'textData' => $textData]);
     }
+
+
+    /**
+     * cam
+     *
+     * @return View
+     */
+    public function cam()
+    {
+        $cam = 1;
+        return view ('cam', ['appUrl' => $this->appUrl, 'cam' => $cam]);
+    }
 }

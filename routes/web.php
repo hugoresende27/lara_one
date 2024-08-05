@@ -29,6 +29,7 @@ Route::get('/ai', [HomeController::class,'indexAI'])->name('ai.index');
 
 Route::get('/', [HomeController::class,'home'])->name('home');
 Route::get('/dashboard', [HomeController::class,'dashboard'])->name('dashboard');
+Route::get('/cam', [HomeController::class,'cam'])->name('cam');
 
 Route::get('textdata', [TextDataController::class, 'index'])->name('textdata.all');
 

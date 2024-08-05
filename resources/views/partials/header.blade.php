@@ -6,6 +6,12 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="{{ asset('css/homestyle.css') }}">
   <link rel="icon" href="{{ asset('favicon.ico') }}?v={{ date('YmdHis') }}">
+
+  {{-- WEBCAM --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
+
+
   <title>Hugo Resende</title>
 </head>
 

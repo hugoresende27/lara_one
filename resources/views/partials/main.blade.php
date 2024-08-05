@@ -42,6 +42,14 @@
           Config
         </a>
 
+        <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="{{ route('cam')}}"  id="contact">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Cam
+        </a>
+
         @if (isset($buttons))
           @foreach ($buttons as $button)
             <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe"href="" id="">
@@ -60,78 +68,6 @@
 
 
 
-         <!--
-          <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe"href="{{ route('home')}}" id="">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Home
-          </a>
-          <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe"href="{{ route('textdata.all')}}" id="">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            TextData
-          </a>
-
-       
-  
-
-       
-
-          <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="#"  id="about">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            About Me
-          </a>
-          <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="#"  id="projects">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Projects
-            <i class="fas fa-briefcase"></i>
-          </a>
-
-          <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="#"  id="resume">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Resume
-          </a>
-          <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="#"  id="build">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Build 
-          </a>
-      
-          <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="#"  id="contact">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Contact
-          </a>
-
-          <a class="btn btn-hero p-3 m-2 w-100 playwrite-pe" href="{{ route('dashboard')}}"  id="contact">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            Config
-          </a>
-
-      </div>
-
-
-    -->
       <div class="col-9 align-items-center">
 
         @if (isset($textData))
@@ -220,9 +156,110 @@
                   <h3>Textdata</h3>
               </div>
           </div>
+
+        @elseif (isset($cam))
+
+          <div class="">
+
+          
+
+          
+             
+          
+              <form method="POST" action="storeImage.php">
+          
+                  <div class="row">
+          
+                      <div class="col-6">
+          
+                          <div id="my_camera"></div>
+          
+                          <br/>
+          
+                          <input type=button value="Take Snapshot" onClick="take_snapshot()" class="btn btn-primary">
+          
+                          <input type="hidden" name="image" class="image-tag">
+          
+                      </div>
+          
+                      <div class="col-6">
+          
+                          <div id="results" class="p-3">Your captured image will appear here...</div>
+          
+                      </div>
+          
+                      <div class="col-md-9 text-center">
+          
+                          <br/>
+          
+                          <button class="btn btn-success">Submit</button>
+          
+                      </div>
+          
+                  </div>
+          
+              </form>
+          
+      
+          
+          
+          </div>
         @else
-          <div class="info-box hidden hi-melody-regular"></div>
+          <div class="info-box hidden hi-melody-regular">
+
+              
+
+
+
+          </div>
 
         @endif
       </div>
     </div>
+
+
+
+
+<!-- Configure a few settings and attach camera -->
+
+<script language="JavaScript">
+
+  var cam = document.getElementById('my_camera');
+
+
+  if (cam) {
+    
+    Webcam.set({
+
+    width: 490,
+
+    height: 390,
+
+    image_format: 'jpeg',
+
+    jpeg_quality: 90
+
+    });
+
+
+
+
+    Webcam.attach( '#my_camera' );
+
+
+
+    function take_snapshot() {
+
+      Webcam.snap( function(data_uri) {
+
+          $(".image-tag").val(data_uri);
+
+          document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+
+      } );
+
+    }
+  }
+
+
+</script>
