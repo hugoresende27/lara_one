@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\TextData;
 use App\Repositories\TextDataRepository;
 use App\Services\AppUrlService;
+use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use OpenAI;
@@ -88,6 +89,45 @@ class HomeController extends Controller
     public function cam()
     {
         $cam = 1;
-        return view ('cam', ['appUrl' => $this->appUrl, 'cam' => $cam]);
+        return view ('cam.index', ['appUrl' => $this->appUrl, 'cam' => $cam]);
+    }
+
+
+    public function storeImage(Request $request)
+    {
+        $fileName = '';
+        try {
+            $base64stringImage = $request->image;
+
+            $folderPath = "webcam_upload/";
+    
+      
+    
+            $image_parts = explode(";base64,", $base64stringImage);
+        
+            $image_type_aux = explode("data:image/", $image_parts[0]);
+    
+        
+            $image_type = $image_type_aux[1];
+            
+          
+        
+            $image_base64 = base64_decode($image_parts[1]);
+        
+            $fileName = uniqid() . '.'.$image_type;
+        
+          
+        
+            $file = $folderPath . $fileName;
+        
+            file_put_contents($file, $image_base64);
+        } catch (Exception $e) {
+            $fileName = $e->getMessage();
+        }
+
+    
+        $gallery = [];//TODO model gallery with image paths
+    
+        return view('cam.gallery',['appUrl' => $this->appUrl, 'camUploadedFile' => $fileName, 'gallery' => $gallery] );
     }
 }

@@ -28,8 +28,14 @@ Route::get('/ai', [HomeController::class,'indexAI'])->name('ai.index');
 
 
 Route::get('/', [HomeController::class,'home'])->name('home');
+
+//DASHBOARD
 Route::get('/dashboard', [HomeController::class,'dashboard'])->name('dashboard');
+
+//CAM
 Route::get('/cam', [HomeController::class,'cam'])->name('cam');
+Route::post('/cam', [HomeController::class,'storeImage'])->name('cam.store');
+
 
 Route::get('textdata', [TextDataController::class, 'index'])->name('textdata.all');
 

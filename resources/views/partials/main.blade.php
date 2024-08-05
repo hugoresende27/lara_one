@@ -166,7 +166,9 @@
           
              
           
-              <form method="POST" action="storeImage.php">
+              <form method="POST" action="{{route('cam.store')}}">
+
+                @csrf
           
                   <div class="row">
           
@@ -184,7 +186,7 @@
           
                       <div class="col-6">
           
-                          <div id="results" class="p-3">Your captured image will appear here...</div>
+                          <div id="imageResults" class="p-3">Your captured image will appear here...</div>
           
                       </div>
           
@@ -204,6 +206,14 @@
           
           
           </div>
+
+
+        @elseif (isset($gallery))
+
+        <div class="info-box  hi-melody-regular">
+            <h1>Gallery</h1>
+            <p>{{$camUploadedFile}}</p>
+        </div>
         @else
           <div class="info-box hidden hi-melody-regular">
 
@@ -254,7 +264,7 @@
 
           $(".image-tag").val(data_uri);
 
-          document.getElementById('results').innerHTML = '<img src="'+data_uri+'"/>';
+          document.getElementById('imageResults').innerHTML = '<img src="'+data_uri+'"/>';
 
       } );
 
